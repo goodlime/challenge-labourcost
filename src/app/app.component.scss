@@ -1,4 +1,31 @@
-.tableHeader {
-   text-transform: uppercase;
-   color: #CCC;
+table {
+   font-size: 12px;
+
+   th {
+      text-transform: uppercase;
+      color: #CCC;
+      vertical-align: top !important;
+   }
+
+   td {
+      vertical-align: middle !important;
+   }
+
+   td, th {
+      border-top: none !important;
+      border-bottom: none !important;
+   }
+}
+
+.text-large {
+   font-size: 28px;
+   font-weight: 300;
+}
+
+.right-border {
+   border-right: #CCC 1px solid;
+}
+
+.align-right {
+   text-align: right;
 }

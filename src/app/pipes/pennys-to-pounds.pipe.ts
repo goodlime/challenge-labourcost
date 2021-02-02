@@ -10,7 +10,7 @@ export class PennysToPoundsPipe implements PipeTransform {
     private currencyPipe: CurrencyPipe
   ) {}
 
-  transform(value: number, ...args: unknown[]): string {
+  transform(value: number): string {
     return this.currencyPipe.transform(value / 100, 'GBP', '', '1.0-0');
   }
 

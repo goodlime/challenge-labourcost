@@ -5,22 +5,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PennysToPoundsPipe } from './pipes/pennys-to-pounds.pipe';
+import { DashOnZeroPipe } from './pipes/dash-on-zero.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PennysToPoundsPipe
+    PennysToPoundsPipe,
+    DashOnZeroPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
   exports: [
-    PennysToPoundsPipe
+    PennysToPoundsPipe,
+    DashOnZeroPipe
   ],
   providers: [
     CurrencyPipe,
-    PennysToPoundsPipe
+    PennysToPoundsPipe,
+    DashOnZeroPipe
   ],
   bootstrap: [AppComponent]
 })

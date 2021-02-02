@@ -12,52 +12,8 @@ import { PennysToPoundsPipe } from './pipes/pennys-to-pounds.pipe';
 export class AppComponent implements OnInit {
   tableData = [];
 
-  columns = [
-    {
-      name: 'Payroll Provider',
-      headerClass: 'tableHeader',
-      prop: 'name'
-    },
-    {
-      name: 'Worker',
-      headerClass: 'tableHeader',
-      prop: 'workerCount'
-    },
-    {
-      name: 'Compliance Score',
-      headerClass: 'tableHeader',
-      prop: 'complianceStats'
-    },
-    {
-      name: 'Gross Pay (&pound;)',
-      headerClass: 'tableHeader',
-      prop: 'grossPayTotal',
-      pipe: this.pennysToPounds
-    },
-    {
-      name: 'Payroll Admin (&pound;)',
-      headerClass: 'tableHeader',
-      prop: 'payrollAdminTotal'
-    },
-    {
-      name: 'Labour Cost (&pound;)',
-      headerClass: 'tableHeader',
-      prop: 'labourCostTotal',
-      pipe: this.pennysToPounds
-    },
-    {
-      name: 'Workforce',
-      headerClass: 'tableHeader',
-      prop: null
-    }
-  ];
-
-  ColumnMode = 'standard';
-  SortType = 'single';
-
   constructor(
-    private api: ApiService,
-    private pennysToPounds: PennysToPoundsPipe
+    private api: ApiService
   ) {}
 
   ngOnInit(): void {
