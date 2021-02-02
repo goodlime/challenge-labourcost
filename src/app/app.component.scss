@@ -1,25 +1,33 @@
 table {
    font-size: 12px;
 
+   td, th {
+      border-top: none !important;
+      border-bottom: none !important;
+      padding: 0.5rem !important;
+   }
+
    th {
       text-transform: uppercase;
       color: #CCC;
       vertical-align: top !important;
+      padding-bottom: 1.75rem !important;
    }
 
    td {
+      color: #AAA;
       vertical-align: middle !important;
-   }
-
-   td, th {
-      border-top: none !important;
-      border-bottom: none !important;
+      font-weight: 700;
    }
 }
 
 .text-large {
    font-size: 28px;
    font-weight: 300;
+}
+
+.text-darker {
+   color: #666;
 }
 
 .right-border {
