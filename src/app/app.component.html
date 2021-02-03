@@ -25,7 +25,7 @@
             <span id="payrollAdminTotal" (click)="onSortClick($event)">Payroll<br>Admin (&pound;)</span>
             <i *ngIf="tableSort.column === 'payrollAdminTotal'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
           </th>
-          <th scope="col" class="text-right">
+          <th scope="col" class="text-right right-padding">
             <span id="labourCostTotal" (click)="onSortClick($event)">Labour<br>Cost (&pound;)</span>
             <i *ngIf="tableSort.column === 'labourCostTotal'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
           </th>
@@ -42,7 +42,7 @@
           <td class="right-border">{{ row.complianceScore | percent:'1.0-0' }}</td>
           <td class="text-large text-darker text-right">{{ row.grossPayTotal | pennysToPounds }}</td>
           <td class="text-right">{{ row.payrollAdminTotal | dashOnZero }}</td>
-          <td class="text-large right-border text-right">{{ row.labourCostTotal | pennysToPounds }}</td>
+          <td class="text-large right-border text-right right-padding">{{ row.labourCostTotal | pennysToPounds }}</td>
           <td>{{ row.workforce | percent:'1.0-1' }}</td>
         </tr>
         <tr class="table-foot-spacer">

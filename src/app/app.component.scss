@@ -10,6 +10,7 @@ table {
       color: #CCC;
       vertical-align: top !important;
       padding-bottom: 1.75rem !important;
+      position: relative;
 
       span {
          display: inline-block;
@@ -18,11 +19,10 @@ table {
 
       .bi {
          display: inline-block;
-         // position: absolute;
-         // top: -2px;
-         // left: 5px;
-         height: 100%;
          color: #A71F1F;
+         position: absolute;
+         top: 4px;
+         margin-left: 4px;
       }
    }
 
@@ -48,4 +48,8 @@ table {
 
 .right-border {
    border-right: #CCC 1px solid;
+}
+
+.right-padding {
+   padding-right: 2.5rem !important;
 }
