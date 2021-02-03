@@ -37,13 +37,13 @@
       </thead>
       <tbody>
         <tr *ngFor="let row of tableData">
-          <td>{{ row.name }}</td>
-          <td class="text-large">{{ row.workerCount }}</td>
-          <td class="right-border">{{ row.complianceScore | percent:'1.0-0' }}</td>
-          <td class="text-large text-darker text-right">{{ row.grossPayTotal | pennysToPounds }}</td>
-          <td class="text-right">{{ row.payrollAdminTotal | dashOnZero }}</td>
-          <td class="text-large right-border text-right right-padding">{{ row.labourCostTotal | pennysToPounds }}</td>
-          <td>{{ row.workforce | percent:'1.0-1' }}</td>
+          <td [ngClass]="{'text-darkest' : tableSort.column === 'name'}">{{ row.name }}</td>
+          <td class="text-large" [ngClass]="{'text-darkest' : tableSort.column === 'workerCount'}">{{ row.workerCount }}</td>
+          <td class="right-border" [ngClass]="{'text-darkest' : tableSort.column === 'complianceScore'}">{{ row.complianceScore | percent:'1.0-0' }}</td>
+          <td class="text-large text-darker text-right" [ngClass]="{'text-darkest' : tableSort.column === 'grossPayTotal'}">{{ row.grossPayTotal | pennysToPounds }}</td>
+          <td class="text-right" [ngClass]="{'text-darkest' : tableSort.column === 'payrollAdminTotal'}">{{ row.payrollAdminTotal | dashOnZero }}</td>
+          <td class="text-large right-border text-right right-padding" [ngClass]="{'text-darkest' : tableSort.column === 'labourCostTotal'}">{{ row.labourCostTotal | pennysToPounds }}</td>
+          <td [ngClass]="{'text-darkest' : tableSort.column === 'workforce'}">{{ row.workforce | percent:'1.0-1' }}</td>
         </tr>
         <tr class="table-foot-spacer">
           <td colspan="7">&nbsp;</td>
@@ -54,7 +54,7 @@
           <td class="right-border text-darker">{{ tableSummary.complianceScore }}</td>
           <td class="text-large text-darker text-right">{{ tableSummary.grossPayTotal | pennysToPounds }}</td>
           <td class="text-right text-darker">{{ tableSummary.payrollAdminTotal | dashOnZero }}</td>
-          <td class="text-large right-border text-right text-darker">{{ tableSummary.labourCostTotal | pennysToPounds }}</td>
+          <td class="text-large right-border text-right text-darker right-padding">{{ tableSummary.labourCostTotal | pennysToPounds }}</td>
           <td class="text-darker">{{ tableSummary.workforce | percent:'1.0-1' }}</td>
         </tr>
       </tbody>
