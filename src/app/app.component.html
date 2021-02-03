@@ -5,24 +5,57 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Payroll<br>Provider</th>
-          <th scope="col">Worker</th>
-          <th scope="col">Compliance<br>Score</th>
-          <th scope="col" class="align-right">Gross<br>Pay (&pound;)</th>
-          <th scope="col" class="align-right">Payroll<br>Admin (&pound;)</th>
-          <th scope="col" class="align-right">Labour<br>Cost (&pound;)</th>
-          <th scope="col">Workforce</th>
+          <th scope="col">
+            <span id="name" (click)="onSortClick($event)">Payroll<br>Provider</span>
+            <i *ngIf="tableSort.column === 'name'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
+          </th>
+          <th scope="col">
+            <span id="workerCount" (click)="onSortClick($event)">Worker</span>
+            <i *ngIf="tableSort.column === 'workerCount'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
+          </th>
+          <th scope="col">
+            <span id="complianceScore" (click)="onSortClick($event)">Compliance<br>Score</span>
+            <i *ngIf="tableSort.column === 'complianceScore'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
+          </th>
+          <th scope="col" class="text-right">
+            <span id="grossPayTotal" (click)="onSortClick($event)">Gross<br>Pay (&pound;)</span>
+            <i *ngIf="tableSort.column === 'grossPayTotal'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
+          </th>
+          <th scope="col" class="text-right">
+            <span id="payrollAdminTotal" (click)="onSortClick($event)">Payroll<br>Admin (&pound;)</span>
+            <i *ngIf="tableSort.column === 'payrollAdminTotal'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
+          </th>
+          <th scope="col" class="text-right">
+            <span id="labourCostTotal" (click)="onSortClick($event)">Labour<br>Cost (&pound;)</span>
+            <i *ngIf="tableSort.column === 'labourCostTotal'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
+          </th>
+          <th scope="col">
+            <span id="workforce" (click)="onSortClick($event)">Workforce</span>
+            <i *ngIf="tableSort.column === 'workforce'" [ngClass]="(tableSort.isAscending) ? 'bi-chevron-up' : 'bi-chevron-down'" class="bi"></i>
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let row of tableData">
           <td>{{ row.name }}</td>
           <td class="text-large">{{ row.workerCount }}</td>
-          <td class="right-border">{{ row.complianceStats }}</td>
-          <td class="text-large text-darker align-right">{{ row.grossPayTotal | pennysToPounds }}</td>
-          <td class="align-right">{{ row.payrollAdminTotal | dashOnZero }}</td>
-          <td class="text-large right-border align-right">{{ row.labourCostTotal | pennysToPounds }}</td>
-          <td></td>
+          <td class="right-border">{{ row.complianceScore | percent:'1.0-0' }}</td>
+          <td class="text-large text-darker text-right">{{ row.grossPayTotal | pennysToPounds }}</td>
+          <td class="text-right">{{ row.payrollAdminTotal | dashOnZero }}</td>
+          <td class="text-large right-border text-right">{{ row.labourCostTotal | pennysToPounds }}</td>
+          <td>{{ row.workforce | percent:'1.0-1' }}</td>
+        </tr>
+        <tr class="table-foot-spacer">
+          <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="text-right text-darker">TOTAL</td>
+          <td class="text-large text-darker">{{ tableSummary.workerCount }}</td>
+          <td class="right-border text-darker">{{ tableSummary.complianceScore }}</td>
+          <td class="text-large text-darker text-right">{{ tableSummary.grossPayTotal | pennysToPounds }}</td>
+          <td class="text-right text-darker">{{ tableSummary.payrollAdminTotal | dashOnZero }}</td>
+          <td class="text-large right-border text-right text-darker">{{ tableSummary.labourCostTotal | pennysToPounds }}</td>
+          <td class="text-darker">{{ tableSummary.workforce | percent:'1.0-1' }}</td>
         </tr>
       </tbody>
     </table>

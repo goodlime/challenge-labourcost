@@ -1,10 +1,8 @@
 table {
-   font-size: 12px;
-
    td, th {
       border-top: none !important;
       border-bottom: none !important;
-      padding: 0.5rem !important;
+      padding: 0.5rem 1rem !important;
    }
 
    th {
@@ -12,6 +10,20 @@ table {
       color: #CCC;
       vertical-align: top !important;
       padding-bottom: 1.75rem !important;
+
+      span {
+         display: inline-block;
+         cursor: pointer;
+      }
+
+      .bi {
+         display: inline-block;
+         // position: absolute;
+         // top: -2px;
+         // left: 5px;
+         height: 100%;
+         color: #A71F1F;
+      }
    }
 
    td {
@@ -19,6 +31,10 @@ table {
       vertical-align: middle !important;
       font-weight: 700;
    }
+}
+
+.table-foot-spacer {
+   height: 30px;
 }
 
 .text-large {
@@ -32,8 +48,4 @@ table {
 
 .right-border {
    border-right: #CCC 1px solid;
-}
-
-.align-right {
-   text-align: right;
 }
