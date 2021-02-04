@@ -51,7 +51,7 @@
         <tr>
           <td class="text-right text-darker">TOTAL</td>
           <td class="text-large text-darker">{{ tableSummary.workerCount }}</td>
-          <td class="right-border text-darker">{{ tableSummary.complianceScore }}</td>
+          <td class="right-border text-darker">{{ tableSummary.complianceScore | percent:'1.0-0' }}</td>
           <td class="text-large text-darker text-right">{{ tableSummary.grossPayTotal | pennysToPounds }}</td>
           <td class="text-right text-darker">{{ tableSummary.payrollAdminTotal | dashOnZero }}</td>
           <td class="text-large right-border text-right text-darker right-padding">{{ tableSummary.labourCostTotal | pennysToPounds }}</td>
