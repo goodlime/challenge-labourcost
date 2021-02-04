@@ -30,14 +30,19 @@ export class AppComponent implements OnInit {
             data: [...response[0].providers, ...response[0].directContractors],
             totals: response[0].total[0]
           };
+
           let workforceTotalPercentage = 0;
           mappedData.data.map(provider => {
-            provider.workforce = provider.workerCount / mappedData.totals.workerCount;
-            workforceTotalPercentage += provider.workforce;
-            provider.complianceScore = provider.complianceStats ? provider.complianceStats.Total / 100 : 0;
+            provider.workforce = provider.workerCount / mappedData.totals.workerCount; // calculate respresentative workforce fraction
+            workforceTotalPercentage += provider.workforce; // summing the total for table summary
+            provider.complianceScore = provider.complianceStats ? provider.complianceStats.Total / 100 : 0; // compliance score, else zero
             return provider;
           });
           mappedData.totals.workforce = workforceTotalPercentage;
+
+          // Set summary compliance score as max value in data array to match data in design doc
+          mappedData.totals.complianceScore = Math.max(...mappedData.data.map(obj => obj.complianceScore), 0);
+
           return mappedData;
         })
       )
@@ -54,8 +59,8 @@ export class AppComponent implements OnInit {
     this.tableSort.column = column;
 
     this.tableData = (this.tableSort.isAscending) ?
-    this.tableData.sort((a, b) => 0 - (a[column] > b[column] ? -1 : 1)) :
-    this.tableData.sort((a, b) => 0 - (a[column] > b[column] ? 1 : -1));
+    this.tableData.sort((a, b) => 0 - (a[column] > b[column] ? -1 : 1)) : // sort ascending
+    this.tableData.sort((a, b) => 0 - (a[column] > b[column] ? 1 : -1)); // sort descending
 
     if (this.tableSort.column === 'name') {
       this.tableData.unshift(this.tableData.splice(this.tableData.findIndex(obj => obj.providerId === 0), 1)[0]);
