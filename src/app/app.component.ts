@@ -11,7 +11,7 @@ import { ApiService } from './services/api.service';
 })
 export class AppComponent implements OnInit {
   tableData: Array<ITableData>;
-  tableSummary: ITableData;
+  tableSummary = {} as ITableData;
   tableSort = {
     column: '',
     isAscending: false

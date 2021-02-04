@@ -55,7 +55,7 @@
           <td class="text-large text-darker text-right">{{ tableSummary.grossPayTotal | pennysToPounds }}</td>
           <td class="text-right text-darker">{{ tableSummary.payrollAdminTotal | dashOnZero }}</td>
           <td class="text-large right-border text-right text-darker right-padding">{{ tableSummary.labourCostTotal | pennysToPounds }}</td>
-          <td class="text-darker">{{ tableSummary.workforce | percent:'1.0-1' }}</td>
+          <td class="text-darker">{{ tableSummary.workforce || 0 | percent:'1.0-1' }}</td>
         </tr>
       </tbody>
     </table>
